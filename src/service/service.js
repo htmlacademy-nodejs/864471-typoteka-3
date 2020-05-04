@@ -1,5 +1,6 @@
 'use strict';
 
+const chalk = require(`chalk`);
 const {Cli} = require(`./cli`);
 const {
   USER_ARGV_INDEX,
@@ -19,4 +20,7 @@ if (userArguments.length === 0 || !Cli[userCommand]) {
 }
 result
   .then(() => process.exit(ExitCode.SUCCESS))
-  .catch(() => process.exit(ExitCode.ERROR));
+  .catch((err) => {
+    console.error(chalk.red(err));
+    process.exit(ExitCode.ERROR);
+  });
