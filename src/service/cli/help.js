@@ -1,5 +1,6 @@
 'use strict';
 
+const chalk = require(`chalk`);
 const version = require(`./version`);
 const generate = require(`./generate`);
 
@@ -14,7 +15,7 @@ module.exports = {
   description: `печатает этот текст`,
   async run() {
 
-    console.info(`
+    console.info(chalk.grey(`
     Программа запускает http-сервер и формирует файл с данными для API.
       Гайд:
       server <command>
@@ -23,6 +24,6 @@ module.exports = {
       ${generateDescription(version)}
       ${generateDescription(this)}
       ${generateDescription(generate, [`count`])}
-    `);
+    `));
   },
 };

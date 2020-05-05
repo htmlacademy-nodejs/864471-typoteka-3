@@ -1,5 +1,6 @@
 'use strict';
 
+const chalk = require(`chalk`);
 const fs = require(`fs`);
 const util = require(`util`);
 const {getRandomInt, shuffle} = require(`../../utils`);
@@ -58,6 +59,6 @@ module.exports = {
     const content = JSON.stringify(generateOffers(countOffer), null, 2);
 
     await writeFile(FILE_NAME, content);
-    console.info(`Operation success. File created.`);
+    console.info(chalk.green(`Operation success. File created.`));
   },
 };
