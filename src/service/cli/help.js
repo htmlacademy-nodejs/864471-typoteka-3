@@ -3,6 +3,7 @@
 const chalk = require(`chalk`);
 const version = require(`./version`);
 const generate = require(`./generate`);
+const server = require(`./server`);
 
 
 const generateDescription = ({name, description}, props = []) => {
@@ -24,6 +25,7 @@ module.exports = {
       ${generateDescription(version)}
       ${generateDescription(this)}
       ${generateDescription(generate, [`count`])}
+      ${generateDescription(server, [`port`])}
     `));
   },
 };

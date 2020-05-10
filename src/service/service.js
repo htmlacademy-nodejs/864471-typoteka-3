@@ -19,7 +19,6 @@ if (userArguments.length === 0 || !Cli[userCommand]) {
   result = Cli[userCommand].run(...userArguments.slice(1));
 }
 result
-  .then(() => process.exit(ExitCode.SUCCESS))
   .catch((err) => {
     console.error(chalk.red(err));
     process.exit(ExitCode.ERROR);
