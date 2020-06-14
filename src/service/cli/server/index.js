@@ -1,15 +1,22 @@
 'use strict';
 
 const chalk = require(`chalk`);
-const http = require(`http`);
 const express = require(`express`);
-const postsRouter = require(`./routes/offers-routes`);
+const {HttpCode} = require(`../../../constants`);
+const postsRouter = require(`./routes/posts-routers`);
 
 const DEFAULT_PORT = 3000;
 
 const app = express();
 app.use(express.json());
 app.use(`/posts`, postsRouter);
+app.use((req, res) => res
+  .status(HttpCode.NOT_FOUND)
+  .send(`Not found`));
+
+app.use((err, req, res, _next) => res
+  .status(HttpCode.INTERNAL_SERVER_ERROR)
+  .send(`Internal server error`));
 
 
 module.exports = {
