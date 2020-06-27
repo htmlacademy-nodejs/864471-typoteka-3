@@ -1,5 +1,6 @@
 'use strict';
 
+const {nanoid} = require(`nanoid`);
 const chalk = require(`chalk`);
 const fs = require(`fs`);
 const util = require(`util`);
@@ -14,11 +15,14 @@ const {
   FILE_SENTENCES_PATH,
   FILE_TITLES_PATH,
   FILE_CATEGORIES_PATH,
+  FILE_COMMENTS_PATH,
 } = require(`../../../constants`);
 
 const DEFAULT_COUNT = 1;
 const MAX_COUNT = 1000;
 const FILE_NAME = `mocks.json`;
+
+const MAX_ID_LENGTH = 6;
 
 const CategorySizeRestrict = {
   MIN: 1,
@@ -38,9 +42,24 @@ const getRandomSubList = (list = [], min = 0, max = list.length) => (
   shuffle(list).slice(0, getRandomInt(min, max))
 );
 const getRandomDate = (minTime, maxTime) => new Date(getRandomInt(minTime, maxTime));
-
-const generateOffers = (count, titles, categories, sentences) => (
+const generateComments = (count, comments) => (
   Array(count).fill({}).map(() => ({
+    id: nanoid(MAX_ID_LENGTH),
+    text: shuffle(comments)
+      .slice(0, getRandomInt(1, 3))
+      .join(` `),
+  }))
+);
+
+const generateOffers = (
+  count,
+  titles,
+  categories,
+  sentences,
+  comments,
+) => (
+  Array(count).fill({}).map(() => ({
+    id: nanoid(MAX_ID_LENGTH),
     title: titles[getRandomInt(0, titles.length - 1)],
     createdDate: getRandomDate(Date.now() - THREE_MONTHS, Date.now()).toISOString(),
     announce: getRandomSubList(sentences, AnnounceRestrict.MIN, AnnounceRestrict.MAX).join(` `),
@@ -49,6 +68,7 @@ const generateOffers = (count, titles, categories, sentences) => (
         getRandomInt(CategorySizeRestrict.MIN, CategorySizeRestrict.MAX),
         categories,
     ),
+    comments: generateComments(getRandomInt(1, comments.length - 1), comments),
   }))
 );
 
@@ -69,6 +89,7 @@ module.exports = {
     try {
       const countOffer = getOfferCount(count, DEFAULT_COUNT, MAX_COUNT);
       const titles = await readContent(FILE_TITLES_PATH);
+      const comments = await readContent(FILE_COMMENTS_PATH);
       const categories = await readContent(FILE_CATEGORIES_PATH);
       const sentences = await readContent(FILE_SENTENCES_PATH);
 
@@ -77,6 +98,7 @@ module.exports = {
           titles,
           categories,
           sentences,
+          comments,
       ), null, 2);
 
       await writeFile(FILE_NAME, content);

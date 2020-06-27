@@ -3,6 +3,7 @@
 const FILE_SENTENCES_PATH = `./data/sentences.txt`;
 const FILE_TITLES_PATH = `./data/titles.txt`;
 const FILE_CATEGORIES_PATH = `./data/categories.txt`;
+const FILE_COMMENTS_PATH = `./data/comments.txt`;
 
 const USER_ARGV_INDEX = 2;
 const DEFAULT_COMMAND = `--help`;
@@ -25,6 +26,7 @@ module.exports = {
   FILE_SENTENCES_PATH,
   FILE_TITLES_PATH,
   FILE_CATEGORIES_PATH,
+  FILE_COMMENTS_PATH,
   ExitCode,
   HttpCode,
 };
