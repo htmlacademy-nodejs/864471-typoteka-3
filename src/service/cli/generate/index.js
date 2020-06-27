@@ -16,13 +16,13 @@ const {
   FILE_TITLES_PATH,
   FILE_CATEGORIES_PATH,
   FILE_COMMENTS_PATH,
+  MAX_ID_LENGTH,
 } = require(`../../../constants`);
 
 const DEFAULT_COUNT = 1;
 const MAX_COUNT = 1000;
 const FILE_NAME = `mocks.json`;
 
-const MAX_ID_LENGTH = 6;
 
 const CategorySizeRestrict = {
   MIN: 1,

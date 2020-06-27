@@ -6,6 +6,7 @@ const FILE_CATEGORIES_PATH = `./data/categories.txt`;
 const FILE_COMMENTS_PATH = `./data/comments.txt`;
 
 const USER_ARGV_INDEX = 2;
+const MAX_ID_LENGTH = 6;
 const DEFAULT_COMMAND = `--help`;
 const ExitCode = {
   SUCCESS: 0,
@@ -20,6 +21,8 @@ const HttpCode = {
   UNAUTHORIZED: 401,
 };
 
+API_PREFIX = `/api`;
+
 module.exports = {
   USER_ARGV_INDEX,
   DEFAULT_COMMAND,
@@ -29,4 +32,6 @@ module.exports = {
   FILE_COMMENTS_PATH,
   ExitCode,
   HttpCode,
+  MAX_ID_LENGTH,
+  API_PREFIX,
 };
