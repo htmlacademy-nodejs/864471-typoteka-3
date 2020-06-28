@@ -1,7 +1,7 @@
 'use strict';
 
 
-const {} = require(`express`);
+const {Router} = require(`express`);
 const {
   CategoryService,
   ArticleService,
@@ -16,7 +16,7 @@ const router = new Router();
 (async () => {
   const mockData = await getMockData();
 
-  article(app, new CategoryService(mockData));
+  article(router, new ArticleService(mockData));
 })();
 
 module.exports = router;

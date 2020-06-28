@@ -21,7 +21,7 @@ const HttpCode = {
   UNAUTHORIZED: 401,
 };
 
-API_PREFIX = `/api`;
+const API_PREFIX = `/api`;
 
 module.exports = {
   USER_ARGV_INDEX,

@@ -7,7 +7,7 @@ const {
   API_PREFIX,
 } = require(`../../../constants`);
 const postsRouter = require(`./api/posts-routers`);
-const routes = require(`../api`);
+const routes = require(`./api`);
 
 const DEFAULT_PORT = 3000;
 
