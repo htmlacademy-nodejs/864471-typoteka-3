@@ -1,0 +1,53 @@
+GET http://localhost:3000/api/articles HTTP/1.1
+
+###
+
+GET http://localhost:3000/api/articles/vKJxU- HTTP/1.1
+
+###
+
+POST http://localhost:3000/api/articles HTTP/1.1
+content-type: application/json
+
+{
+  "title": "Как достигнуть успеха не вставая с кресла",
+  "createdDate": "2020-05-31T05:37:38.927Z",
+  "announce": "Две страницы заляпаны свежим кофе. Я была ошибка. Кото не рискут тот не пьет шомпанское. Не пытайтесь торговаться. Цену вещам я знаю. Товар в отличном состоянии.",
+  "fullText": "Бонусом отдам все аксессуары. Хороший продукт. Товар в отличном состоянии. Две страницы заляпаны свежим кофе. Если товар не понравится — верну всё до последней копейки. Продаю с болью в сердце... Я была ошибка. Это настоящая находка для коллекционера! Пользовались бережно и только по большим праздникам., Кому нужен этот новый телефон, если тут такое... Таких предложений больше нет! Если найдёте дешевле — сброшу цену. Кажется, что это хрупкая вещь. Мой дед не мог её сломать. Кото не рискут тот не пьет шомпанское.",
+  "category": [
+    "Медицина"
+  ]
+}
+
+
+###
+
+PUT http://localhost:3000/api/articles/vKJxU- HTTP/1.1
+content-type: application/json
+
+{
+  "title": "Уиии.... Как достигнуть успеха не вставая с кресла"
+}
+
+
+###
+
+DELETE http://localhost:3000/api/articles/XXIyob HTTP/1.1
+
+
+###
+
+GET http://localhost:3000/api/articles/vKJxU-/comments HTTP/1.1
+
+###
+
+POST http://localhost:3000/api/articles/vKJxU-/comments HTTP/1.1
+content-type: application/json
+
+{
+  "text": "Тестовый комментарий!"
+}
+
+###
+
+DELETE http://localhost:3000/api/articles/vKJxU-/comments/zojCxT HTTP/1.1
