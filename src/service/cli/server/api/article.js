@@ -75,47 +75,5 @@ module.exports = (app, service) => {
       .status(HttpCode.OK)
       .json(deletedArticle);
   });
-
-  route.get(`/:articleId/comments`, articleExist(service), (req, res) => {
-    const {article} = res.locals;
-
-    res
-      .status(HttpCode.OK)
-      .json(article.comments || []);
-  });
-  
-  route.delete(`/:articleId/comments/:commentId`, (req, res) => {
-    const {
-      articleId,
-      commentId,
-    } = req.params;
-
-    const comment = service.dropComment(articleId, commentId);
-    if (!comment) {
-      return res
-      .status(HttpCode.NOT_FOUND)
-      .send(`Not found with ${articleId}`);
-    }
-
-    res
-      .status(HttpCode.OK)
-      .json(comment);
-  });
-
-  route.post(`/:articleId/comments`, (req, res) => {
-    const {articleId} = req.params;
-    const comment = req.body;
-
-    const createdComment = service.createComment(articleId, comment);
-    if (!createdComment) {
-      return res
-        .status(HttpCode.NOT_FOUND)
-        .send(`Not found with ${articleId}`);
-    }
-
-    res
-      .status(HttpCode.OK)
-      .json(createdComment);
-  });
 }
 

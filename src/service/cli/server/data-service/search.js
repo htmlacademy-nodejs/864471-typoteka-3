@@ -1,6 +1,6 @@
 'use strict';
 
-const titleStartWith = (text) => (article) => article.title && article.title.startsWith(text);
+const titleStartWith = (text) => (article) => article.title && article.title.includes(text);
 
 class SearchService {
   constructor(articles) {
