@@ -1,0 +1,15 @@
+
+GET http://localhost:3000/api/articles/vKJxU-/comments HTTP/1.1
+
+###
+
+POST http://localhost:3000/api/articles/vKJxU-/comments HTTP/1.1
+content-type: application/json
+
+{
+  "text": "Тестовый комментарий!"
+}
+
+###
+
+DELETE http://localhost:3000/api/articles/vKJxU-/comments/zojCxT HTTP/1.1
