@@ -5,6 +5,7 @@
   "main": "./src/service/service.js",
   "scripts": {
     "test": "npm run eslint",
+    "test::rest": "node ./node_modules/.bin/jest",
     "eslint": "eslint --ext .js src/",
     "start": "node ./src/service/service.js",
     "server": "node ./node_modules/.bin/nodemon ./src/service/service.js --server",
@@ -23,7 +24,9 @@
   "devDependencies": {
     "eslint": "6.8.0",
     "eslint-config-htmlacademy": "0.5.2",
-    "nodemon": "2.0.3"
+    "jest": "26.1.0",
+    "nodemon": "2.0.3",
+    "supertest": "4.0.2"
   },
   "dependencies": {
     "chalk": "4.0.0",
