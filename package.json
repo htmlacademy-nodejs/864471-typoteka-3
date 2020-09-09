@@ -7,8 +7,8 @@
     "test": "npm run eslint",
     "test::rest": "node ./node_modules/.bin/jest",
     "eslint": "eslint --ext .js src/",
-    "start": "export LOG_LEVEL=error && node ./node_modules/.bin/nodemon ./src/service/service.js --server",
-    "start::debug": "export LOG_LEVEL=debug && node ./node_modules/.bin/nodemon ./src/service/service.js --server | ./node_modules/.bin/pino-pretty",
+    "start": "export LOG_LEVEL=error && node ./node_modules/.bin/nodemon ./src/service/service.js --server 4040 | ./node_modules/.bin/pino-tee warn ./src/service/logs",
+    "start::debug": "export LOG_LEVEL=debug && node ./node_modules/.bin/nodemon ./src/service/service.js --server | ./node_modules/.bin/pino-tee info ./src/service/logs | ./node_modules/.bin/pino-pretty",
     "start-front-server": "node ./src/express/index.js"
   },
   "repository": {
@@ -34,6 +34,7 @@
     "express": "4.17.1",
     "nanoid": "3.1.10",
     "pino": "^6.6.0",
+    "pino-tee": "^0.3.0",
     "pug": "3.0.0"
   }
 }
