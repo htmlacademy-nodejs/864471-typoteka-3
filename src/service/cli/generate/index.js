@@ -18,6 +18,7 @@ const {
   FILE_COMMENTS_PATH,
   MAX_ID_LENGTH,
 } = require(`../../../constants`);
+const logger = require(`../../../logger`);
 
 const DEFAULT_COUNT = 1;
 const MAX_COUNT = 1000;
@@ -102,9 +103,9 @@ module.exports = {
       ), null, 2);
 
       await writeFile(FILE_NAME, content);
-      console.info(chalk.green(`Operation success. File created.`));
+      logger.info(chalk.green(`Operation success. File created.`));
     } catch (err) {
-      console.error(chalk.red(`Can't write data to file...`));
+      logger.error(chalk.red(`Can't write data to file...`));
     }
   },
 };

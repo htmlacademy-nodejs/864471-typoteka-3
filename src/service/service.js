@@ -7,6 +7,7 @@ const {
   DEFAULT_COMMAND,
   ExitCode,
 } = require(`../constants`);
+const logger = require(`../logger`);
 
 const userArguments = process.argv.slice(USER_ARGV_INDEX);
 const [userCommand] = userArguments;
@@ -20,6 +21,6 @@ if (userArguments.length === 0 || !Cli[userCommand]) {
 }
 result
   .catch((err) => {
-    console.error(chalk.red(err));
+    logger.error(chalk.red(err));
     process.exit(ExitCode.ERROR);
   });

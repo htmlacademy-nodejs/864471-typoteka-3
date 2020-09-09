@@ -62,7 +62,7 @@ module.exports = (app, service) => {
 
   route.delete(`/:articleId`, (req,res) => {
     const {articleId} = req.params;
-    
+
     const deletedArticle = service.drop(articleId);
 
     if (!deletedArticle) {

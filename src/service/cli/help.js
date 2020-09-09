@@ -4,6 +4,7 @@ const chalk = require(`chalk`);
 const version = require(`./version`);
 const generate = require(`./generate`);
 const server = require(`./server`);
+const logger = require(`../../logger`);
 
 
 const generateDescription = ({name, description}, props = []) => {
@@ -16,7 +17,7 @@ module.exports = {
   description: `печатает этот текст`,
   async run() {
 
-    console.info(chalk.grey(`
+    logger.info(chalk.grey(`
     Программа запускает http-сервер и формирует файл с данными для API.
       Гайд:
       server <command>

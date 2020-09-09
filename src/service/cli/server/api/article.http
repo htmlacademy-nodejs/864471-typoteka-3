@@ -1,14 +1,43 @@
-GET http://localhost:3000/api/articles/vKJxU-/comments HTTP/1.1
+GET http://localhost:3000/api/articles HTTP/1.1
 
 ###
 
-POST http://localhost:3000/api/articles/vKJxU-/comments HTTP/1.1
+GET http://localhost:3000/api/articles/hmRToo HTTP/1.1
+
+###
+
+POST http://localhost:3000/api/articles HTTP/1.1
 content-type: application/json
 
 {
-  "text": "Тестовый комментарий!"
+  "title": "Окраина галактики 2",
+  "createdDate": "2020-07-01T09:44:36.940Z",
+  "announce": "Кажется, что это хрупкая вещь. При покупке с меня бесплатная доставка в черте города.",
+  "fullText": "Кому нужен этот новый телефон, если тут такое... Не пытайтесь торговаться. Цену вещам я знаю.",
+  "category": [
+    "Медицина",
+    "Разное",
+    "За жизнь"
+  ],
+  "comments": [
+    {
+      "id": "GLaZZJ",
+      "text": "А где блок питания? Неплохо, но дорого А сколько игр в комплекте?"
+    }
+  ]
 }
 
 ###
 
-DELETE http://localhost:3000/api/articles/vKJxU-/comments/zojCxT HTTP/1.1
+PUT http://localhost:3000/api/articles/hmRToo HTTP/1.1
+content-type: application/json
+
+{
+  "title": "Уиии.... Как достигнуть успеха не вставая с кресла"
+}
+
+###
+
+DELETE http://localhost:3000/api/articles/TO9OeM HTTP/1.1
+
+###

@@ -3,16 +3,17 @@
 
 const express = require(`express`);
 const {HttpCode} = require(`../../../constants`);
+const logger = require(`../../../logger`);
 
 const createServer = (...apiRouterList) => {
   const app = express();
   app.use((req, res, next) => {
-    console.log(`Start request to url ${req.url}`);
+    logger.debug(`Start request to url ${req.url}`);
     next();
     if (res.statusCode < 400) {
-      console.log(`End request with status code ${res.statusCode}`);
+      logger.debug(`End request with status code ${res.statusCode}`);
     } else {
-      console.error(`End request with error ${res.statusCode}`);
+      logger.error(`End request with error ${res.statusCode}`);
     }
   });
   app.use(express.json());
