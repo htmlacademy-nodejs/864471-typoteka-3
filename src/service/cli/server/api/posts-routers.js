@@ -3,6 +3,7 @@
 const {Router} = require(`express`);
 const fs = require(`fs`).promises;
 const {HttpCode} = require(`../../../../constants`);
+const logger = require(`../../../../logger`);
 
 const FILENAME = `mocks.json`;
 
@@ -23,7 +24,7 @@ postsRouter.get(`/`, async (req, res) => {
       res.json([]);
     } else {
       res.status(HttpCode.INTERNAL_SERVER_ERROR);
-      console.error(err);
+      logger.error(err);
     }
   }
 });

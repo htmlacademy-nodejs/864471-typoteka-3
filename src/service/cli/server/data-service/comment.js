@@ -2,6 +2,7 @@
 
 const {nanoid} = require(`nanoid`);
 const {MAX_ID_LENGTH} = require(`../../../../constants`);
+const logger = require(`../../../../logger`);
 
 
 class CommentService {
@@ -15,7 +16,7 @@ class CommentService {
       if (!article) {
         return null;
       }
-  
+
       const newComment = {
         id: nanoid(MAX_ID_LENGTH),
         ...comment,
@@ -23,7 +24,7 @@ class CommentService {
       article.comments.push(newComment);
       return newComment;
     } catch (err) {
-      console.error(err);
+      logger.error(err);
       return null;
     }
   }
@@ -34,16 +35,16 @@ class CommentService {
       if (!article) {
         return null;
       }
-  
+
       const comment = article.comments.find((item) => item.id === commentId);
       if (!comment) {
         return null;
       }
-  
+
       article.comments = article.comments.filter((item) => item.id !== commentId);
       return comment;
     } catch (err) {
-      console.error(err);
+      logger.error(err);
       return null;
     }
   }

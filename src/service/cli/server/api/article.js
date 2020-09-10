@@ -3,7 +3,7 @@
 const {Router} = require(`express`);
 const {HttpCode} = require(`../../../../constants`);
 const articleValidator = require(`../middlewares/article-validator`);
-const articleExist = require(`../middlewares/article-exist`);
+
 
 const route = Router();
 
@@ -62,7 +62,7 @@ module.exports = (app, service) => {
 
   route.delete(`/:articleId`, (req,res) => {
     const {articleId} = req.params;
-    
+
     const deletedArticle = service.drop(articleId);
 
     if (!deletedArticle) {

@@ -13,11 +13,12 @@ module.exports = (app, service) => {
 
     if (!query) {
       res
-        .status(HttpCode.BAD_REQUEST);
+        .status(HttpCode.BAD_REQUEST)
+        .end();
     }
     const articles = service.search(query);
     res
       .status(HttpCode.OK)
       .json(articles);
   });
-}
+};
